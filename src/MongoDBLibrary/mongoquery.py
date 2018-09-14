@@ -135,8 +135,6 @@ class MongoQuery(object):
         dbName = str(dbName)
         dbCollName = str(dbCollName)
         recordJSON = dict(json.loads(recordJSON))
-        if '_id' in recordJSON:
-            recordJSON['_id'] = ObjectId(recordJSON['_id'])
         try:
             db = self._dbconnection['%s' % (dbName,)]
         except TypeError:
@@ -161,8 +159,6 @@ class MongoQuery(object):
         collection_name = str(dbCollName)
         query_json = json.loads(queryJSON)
         update_json = json.loads(updateJSON)
-        if '_id' in query_json:
-            query_json['_id'] = ObjectId(queryJSON['_id'])
         try:
             db = self._dbconnection['%s' % (db_name,)]
         except TypeError:
@@ -220,8 +216,6 @@ class MongoQuery(object):
         record_json = dict(json.loads(queryJSON))
         update_json = dict(json.loads(updateJSON))
         document_to_return = ReturnDocument.BEFORE if returnBeforeDocument is True else ReturnDocument.AFTER
-        if '_id' in record_json:
-            record_json['_id'] = ObjectId(record_json['_id'])
         try:
             db = self._dbconnection['%s' % (dbname,)]
         except TypeError:
@@ -351,8 +345,6 @@ class MongoQuery(object):
         dbName = str(dbName)
         dbCollName = str(dbCollName)
         recordJSON = json.loads(recordJSON)
-        if '_id' in recordJSON:
-            recordJSON['_id'] = ObjectId(recordJSON['_id'])
         try:
             db = self._dbconnection['%s' % (dbName,)]
         except TypeError:
